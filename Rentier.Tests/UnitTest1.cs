@@ -18,6 +18,8 @@ namespace Rentier.Tests
             
             var meters = new List<Meter>();
             var hotWM1 = new ColdWaterMeter(rateRepo) { SerialNumber = "491409893" };
+            hotWM1.Values.Add(new MeterValue { Year = 2025, Month = 06, Value = 358.35M });
+            hotWM1.Values.Add(new MeterValue { Year = 2025, Month = 05, Value = 350.99M });
             hotWM1.Values.Add(new MeterValue { Year = 2024, Month = 03, Value = 208.69M });
             hotWM1.Values.Add(new MeterValue { Year = 2024, Month = 02, Value = 201.20M });
             hotWM1.Values.Add(new MeterValue { Year = 2024, Month = 01, Value = 194.33M });
@@ -33,6 +35,8 @@ namespace Rentier.Tests
             hotWM1.Values.Add(new MeterValue { Year = 2023, Month = 03, Value = 123.94M });
             hotWM1.Values.Add(new MeterValue { Year = 2023, Month = 02, Value = 114.22M });
             var hotWM2 = new ColdWaterMeter(rateRepo) { SerialNumber = "491409908" };
+            hotWM2.Values.Add(new MeterValue { Year = 2025, Month = 06, Value = 30.53M });
+            hotWM2.Values.Add(new MeterValue { Year = 2025, Month = 05, Value = 29.78M });
             hotWM2.Values.Add(new MeterValue { Year = 2024, Month = 03, Value = 18.31M });
             hotWM2.Values.Add(new MeterValue { Year = 2024, Month = 02, Value = 17.62M });
             hotWM2.Values.Add(new MeterValue { Year = 2024, Month = 01, Value = 16.94M });
@@ -49,6 +53,8 @@ namespace Rentier.Tests
             hotWM2.Values.Add(new MeterValue { Year = 2023, Month = 02, Value = 7.45M });
             //------
             var coldWM1 = new HotWaterMeter(rateRepo) { SerialNumber = "BC730756" };
+            coldWM1.Values.Add(new MeterValue { Year = 2025, Month = 06, Value = 54.96M });
+            coldWM1.Values.Add(new MeterValue { Year = 2025, Month = 05, Value = 53.69M });
             coldWM1.Values.Add(new MeterValue { Year = 2024, Month = 03, Value = 30.44M });
             coldWM1.Values.Add(new MeterValue { Year = 2024, Month = 02, Value = 28.85M });
             coldWM1.Values.Add(new MeterValue { Year = 2024, Month = 01, Value = 27.71M });
@@ -64,6 +70,8 @@ namespace Rentier.Tests
             coldWM1.Values.Add(new MeterValue { Year = 2023, Month = 03, Value = 11.89M });
             coldWM1.Values.Add(new MeterValue { Year = 2023, Month = 02, Value = 11.26M });
             var coldWM2 = new HotWaterMeter(rateRepo) { SerialNumber = "BC730741" };
+            coldWM2.Values.Add(new MeterValue { Year = 2025, Month = 06, Value = 31.56M });
+            coldWM2.Values.Add(new MeterValue { Year = 2025, Month = 05, Value = 30.72M });
             coldWM2.Values.Add(new MeterValue { Year = 2024, Month = 03, Value = 18.55M });
             coldWM2.Values.Add(new MeterValue { Year = 2024, Month = 02, Value = 17.65M });
             coldWM2.Values.Add(new MeterValue { Year = 2024, Month = 01, Value = 16.69M });
@@ -94,6 +102,8 @@ namespace Rentier.Tests
             electroM.Values.Add(new MeterValue { Year = 2024, Month = 01, Value = 4181.4M });
             electroM.Values.Add(new MeterValue { Year = 2024, Month = 02, Value = 4246.0M });
             electroM.Values.Add(new MeterValue { Year = 2024, Month = 03, Value = 4301.9M });
+            electroM.Values.Add(new MeterValue { Year = 2025, Month = 05, Value = 5615.4M });
+            electroM.Values.Add(new MeterValue { Year = 2025, Month = 06, Value = 5710.2M });
             meters.Add(hotWM1);
             meters.Add(hotWM2);
             meters.Add(electroM);
@@ -106,8 +116,8 @@ namespace Rentier.Tests
             rateTypes.Add(RateType.ElectricityWithGas);
             rateTypes.Add(RateType.Canalization);
 
-            var realEst = new RealEstate(rateRepo) { FixPrice = 16000, MeterList = meters, Rates = rateTypes };
-            var result = realEst.Compute(new DateOnly(2024,03,15));
+            var realEst = new RealEstate(rateRepo) { FixPrice = 19000, MeterList = meters, Rates = rateTypes };
+            var result = realEst.Compute(new DateOnly(2025,06,15));
             _output.WriteLine(result.SummaryText);
             _output.WriteLine($"Итого: {result.Result} р.");
         }

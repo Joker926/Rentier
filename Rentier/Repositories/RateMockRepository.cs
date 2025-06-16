@@ -18,7 +18,7 @@ namespace Rentier.Repositories
                         DateFrom = new DateOnly(2022, 01, 01),
                         DateTo = new DateOnly(2023, 12, 31),
                         Type = RateType.ColdWater,
-                        Value = 26.94M
+                        Value = 29.03M
                     };
                 case RateType.HotWater:
                     return new Rate()
@@ -26,7 +26,7 @@ namespace Rentier.Repositories
                         DateFrom = new DateOnly(2022, 01, 01),
                         DateTo = new DateOnly(2023, 12, 31),
                         Type = RateType.HotWater,
-                        Value = 232.17M
+                        Value = 265.05M
                     };
                 case RateType.ElectricityWithGas:
                     return new Rate()
@@ -34,7 +34,7 @@ namespace Rentier.Repositories
                         DateFrom = new DateOnly(2022, 01, 01),
                         DateTo = new DateOnly(2023, 12, 31),
                         Type = RateType.ElectricityWithGas,
-                        Value = 6.73M
+                        Value = 7.33M
                     };
                 case RateType.ElectricityWithoutGas:
                     return new Rate()
@@ -50,7 +50,7 @@ namespace Rentier.Repositories
                         DateFrom = new DateOnly(2022, 01, 01),
                         DateTo = new DateOnly(2023, 12, 31),
                         Type = RateType.Canalization,
-                        Value = 22.52M
+                        Value = 25.22M
                     };
                 default: throw new NotImplementedException();
             }
